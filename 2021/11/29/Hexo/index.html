@@ -8,20 +8,28 @@
   
     <meta name="keywords" content="Network，Server" />
   
-  <meta name="description" content="hexo是一个基于Nodejs的快速生产静态博客的开源框架，支持Markdown和大多数的Octopress插件，可通过部署到github、gitee和gitlab等方式托管，支持强大的API，可扩展，支持多个自定义主题。">
+  <meta name="description" content="hexo是一个基于Nodejs的快速生产静态博客的开源框架，支持Markdown和大多数的Octopress插件，可通过部署到github、gitee和gitlab等方式托管，支持强大的API，可扩展，支持多个自定义主题。 第一部分本文基于Windows部署 Hexo的初级搭建和部署到Github page以及个人域名的绑定 Hexo部署步骤：安装GitWindows直接安装 Linux：sudo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://tecnn.github.io/2021/11/29/Hexo/index.html">
 <meta property="og:site_name" content="New Generation Of Migrant Workers">
-<meta property="og:description" content="hexo是一个基于Nodejs的快速生产静态博客的开源框架，支持Markdown和大多数的Octopress插件，可通过部署到github、gitee和gitlab等方式托管，支持强大的API，可扩展，支持多个自定义主题。">
+<meta property="og:description" content="hexo是一个基于Nodejs的快速生产静态博客的开源框架，支持Markdown和大多数的Octopress插件，可通过部署到github、gitee和gitlab等方式托管，支持强大的API，可扩展，支持多个自定义主题。 第一部分本文基于Windows部署 Hexo的初级搭建和部署到Github page以及个人域名的绑定 Hexo部署步骤：安装GitWindows直接安装 Linux：sudo">
 <meta property="og:locale">
+<meta property="og:image" content="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129131553688.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129131834106.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129131944078.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129132315941.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129132417149.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129132824373.png">
 <meta property="article:published_time" content="2021-11-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-11-29T03:07:55.169Z">
+<meta property="article:modified_time" content="2021-11-29T05:30:41.294Z">
 <meta property="article:author" content="Kuter Liu">
 <meta property="article:tag" content="blog">
 <meta property="article:tag" content="博客">
 <meta property="article:tag" content="文档">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129131553688.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -163,10 +171,65 @@
       
             
             <p>hexo是一个基于Nodejs的快速生产静态博客的开源框架，支持Markdown和大多数的Octopress插件，可通过部署到github、gitee和gitlab等方式托管，支持强大的API，可扩展，支持多个自定义主题。</p>
+<h1 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h1><p>本文基于Windows部署</p>
+<p>Hexo的初级搭建和部署到Github page以及个人域名的绑定</p>
+<h2 id="Hexo部署步骤："><a href="#Hexo部署步骤：" class="headerlink" title="Hexo部署步骤："></a>Hexo部署步骤：</h2><h4 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h4><p>Windows直接安装</p>
+<p>Linux：sudo apt-get install git -y</p>
+<h4 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h4><p>Windows直接安装</p>
+<p>Linux：sudo apt-get install nodejs -y</p>
+<p>​            sudo apt-get install npm</p>
+<p>通过node -v和npm -v进行验证。</p>
+<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><p>npm install -g hexo-cli</p>
+<p>使用hexo -v检查版本信息</p>
+<h4 id="初始化hexo以及生成必要文件"><a href="#初始化hexo以及生成必要文件" class="headerlink" title="初始化hexo以及生成必要文件"></a>初始化hexo以及生成必要文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init docs</span><br><span class="line">cd docs</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>node_modules :依赖包</li>
+<li>public:存放生成的页面</li>
+<li>scaffolds:生成文章的一些模板</li>
+<li>source:用来存放自己写的文章</li>
+<li>themes:主题</li>
+<li>**—config.yml:网站的主要配置文件</li>
+</ul>
+<h4 id="生成静态页面并开启本地预览"><a href="#生成静态页面并开启本地预览" class="headerlink" title="生成静态页面并开启本地预览"></a>生成静态页面并开启本地预览</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo server or hexo g</span><br><span class="line">浏览器输入localhost:4000可以查看本地预览</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129131553688.png" alt="image-20211129131553688"></p>
+<h4 id="Github创建个人仓库"><a href="#Github创建个人仓库" class="headerlink" title="Github创建个人仓库"></a>Github创建个人仓库</h4><p>默认有github账号</p>
+<p>创建一个和你用户名相同的仓库，后面加.github.io，只有这样，将来要部署到GitHub page的时候，才会被识别，也就是xxxx.github.io，其中xxx就是你注册GitHub的用户名</p>
+<p><img src="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129131834106.png" alt="image-20211129131834106"></p>
+<h4 id="生成SSH添加到Github中进行本机授权"><a href="#生成SSH添加到Github中进行本机授权" class="headerlink" title="生成SSH添加到Github中进行本机授权"></a>生成SSH添加到Github中进行本机授权</h4><p>桌面右击选择git bash here</p>
+<p><img src="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129131944078.png" alt="image-20211129131944078"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br><span class="line">git config --global user.email &quot;your eamul&quot;</span><br></pre></td></tr></table></figure>
+
+<p>以上命令中输入你githun的名字以及注册的邮箱</p>
+<p>通过以下命令进行验证你的输入是否正确：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+
+<p>创建SSH key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your email&quot;</span><br></pre></td></tr></table></figure>
+
+<p>一路回车后在你的用户名下.ssh文件中会生成一个id_rsas.pub的文件，复制里面的rsa key到github中。</p>
+<p><img src="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129132315941.png" alt="image-20211129132315941"></p>
+<p>通过ssh 今天验证</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129132417149.png" alt="image-20211129132417149"></p>
+<h4 id="部署Hexo到github上"><a href="#部署Hexo到github上" class="headerlink" title="部署Hexo到github上"></a>部署Hexo到github上</h4><p>修改docs下_config.yml文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/YourgithubName/YourgithubName.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>安装deploy-git</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deploy-git --save</span><br></pre></td></tr></table></figure>
+
+<p>生成静态页面并上传到github中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate or hexo g</span><br><span class="line">hexo deploy or hexo d</span><br></pre></td></tr></table></figure>
+
+<p>设置github page</p>
+<p><img src="https://raw.githubusercontent.com/tecnn/imges/master/image-20211129132824373.png" alt="image-20211129132824373"></p>
+<p>在浏览器中输入yourname.githun.io即浏览刚刚设置的站点。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2021年11月29日 11:07</p>
+        <p>最后更新： 2021年11月29日 13:30</p>
         <p>原始链接： <a class="post-url" href="/2021/11/29/Hexo/" title="Hexo">http://tecnn.github.io/2021/11/29/Hexo/</a></p>
         <footer>
             <a href="http://tecnn.github.io">
@@ -242,6 +305,8 @@
       
     <a href="/tags/文档/" class="color3">文档</a>
       
+    <a href="/tags/Hexo/" class="color5">Hexo</a>
+      
   </li>
 
         </ul>
@@ -251,22 +316,28 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86"><span class="post-toc-text">第一部分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hexo%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="post-toc-text">Hexo部署步骤：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85Git"><span class="post-toc-text">安装Git</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85nodejs"><span class="post-toc-text">安装nodejs</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="post-toc-text">安装Hexo</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96hexo%E4%BB%A5%E5%8F%8A%E7%94%9F%E6%88%90%E5%BF%85%E8%A6%81%E6%96%87%E4%BB%B6"><span class="post-toc-text">初始化hexo以及生成必要文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E5%B9%B6%E5%BC%80%E5%90%AF%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="post-toc-text">生成静态页面并开启本地预览</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Github%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93"><span class="post-toc-text">Github创建个人仓库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%94%9F%E6%88%90SSH%E6%B7%BB%E5%8A%A0%E5%88%B0Github%E4%B8%AD%E8%BF%9B%E8%A1%8C%E6%9C%AC%E6%9C%BA%E6%8E%88%E6%9D%83"><span class="post-toc-text">生成SSH添加到Github中进行本机授权</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%83%A8%E7%BD%B2Hexo%E5%88%B0github%E4%B8%8A"><span class="post-toc-text">部署Hexo到github上</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
-    <a href="/2021/11/29/MMWiki/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/11/29/Docsify/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          MM_Wiki
+          Docsify
         
       </span>
     </a>
   
   
-    <a href="/2021/11/16/Seafile%20%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Seafile 安装脚本（转载）</span>
+    <a href="/2021/11/29/MMWiki/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">MM_Wiki</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -330,7 +401,7 @@
             <a class="category-link" href="/categories/Seafil-Cloud/">Seafil Cloud</a><a class="category-link" href="/categories/Wiki/">Wiki</a><a class="category-link" href="/categories/blog/">blog</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Docsify/" style="font-size: 10px;">Docsify</a> <a href="/tags/Doku/" style="font-size: 10px;">Doku</a> <a href="/tags/MM-Wiki/" style="font-size: 10px;">MM_Wiki</a> <a href="/tags/MiniDoc/" style="font-size: 10px;">MiniDoc</a> <a href="/tags/Seafile/" style="font-size: 10px;">Seafile</a> <a href="/tags/Wiki/" style="font-size: 20px;">Wiki</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 10px;">文档</a> <a href="/tags/%E6%96%87%E6%A1%A3%E7%AE%A1%E7%90%86/" style="font-size: 20px;">文档管理</a>
+            <a href="/tags/BookStack/" style="font-size: 10px;">BookStack</a> <a href="/tags/Docsify/" style="font-size: 10px;">Docsify</a> <a href="/tags/Doku/" style="font-size: 10px;">Doku</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/MM-Wiki/" style="font-size: 10px;">MM_Wiki</a> <a href="/tags/MiniDoc/" style="font-size: 10px;">MiniDoc</a> <a href="/tags/Seafile/" style="font-size: 10px;">Seafile</a> <a href="/tags/Wiki/" style="font-size: 20px;">Wiki</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15px;">博客</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 15px;">文档</a> <a href="/tags/%E6%96%87%E6%A1%A3%E7%AE%A1%E7%90%86/" style="font-size: 20px;">文档管理</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -363,7 +434,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Docsify/" style="font-size: 10px;">Docsify</a> <a href="/tags/Doku/" style="font-size: 10px;">Doku</a> <a href="/tags/MM-Wiki/" style="font-size: 10px;">MM_Wiki</a> <a href="/tags/MiniDoc/" style="font-size: 10px;">MiniDoc</a> <a href="/tags/Seafile/" style="font-size: 10px;">Seafile</a> <a href="/tags/Wiki/" style="font-size: 20px;">Wiki</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 10px;">文档</a> <a href="/tags/%E6%96%87%E6%A1%A3%E7%AE%A1%E7%90%86/" style="font-size: 20px;">文档管理</a>
+            <a href="/tags/BookStack/" style="font-size: 10px;">BookStack</a> <a href="/tags/Docsify/" style="font-size: 10px;">Docsify</a> <a href="/tags/Doku/" style="font-size: 10px;">Doku</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/MM-Wiki/" style="font-size: 10px;">MM_Wiki</a> <a href="/tags/MiniDoc/" style="font-size: 10px;">MiniDoc</a> <a href="/tags/Seafile/" style="font-size: 10px;">Seafile</a> <a href="/tags/Wiki/" style="font-size: 20px;">Wiki</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15px;">博客</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 15px;">文档</a> <a href="/tags/%E6%96%87%E6%A1%A3%E7%AE%A1%E7%90%86/" style="font-size: 20px;">文档管理</a>
         </div>
     </div>
 </div>
